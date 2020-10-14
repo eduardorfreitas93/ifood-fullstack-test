@@ -70,7 +70,7 @@ active simultaneously (about ~1k).
 
 * RabbitMQ
 
-### Run Projeto
+### Run Project
 
 ```
 docker-compose up -d
