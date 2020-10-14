@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "name": "consumer-order",
+      "script": "./consumerOrder.js",
+      "merge_logs": true,
+      "max_restarts": 20,
+      "instances": 1,
+      "max_memory_restart": "200M"
+    },
+    {
+      "name": "consumer-client",
+      "script": "./consumerClient.js",
+      "merge_logs": true,
+      "max_restarts": 20,
+      "instances": 1,
+      "max_memory_restart": "200M"
+    }
+  ]
+}

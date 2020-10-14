@@ -44,3 +44,28 @@ As this web application will be a worldwide success, it must be prepared to be f
 In other words, each micro-service will constantly reiceive a POST requests 
 (let's say 2/sec for client and 50/sec for order) and your web application will have a lots of users 
 active simultaneously (about ~1k).
+
+## Diagram
+
+![Diagram_architecture](./ifood-test-diagram.png)
+
+## Language, tools and frameworks
+
+### Front-end
+
+* JS
+* Reactjs
+
+### Api-gateway
+
+* JS
+* NodeJs
+* Express
+
+### Consumer
+
+* JS
+
+### Queue
+
+* RabbitMQ

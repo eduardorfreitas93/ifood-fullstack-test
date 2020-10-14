@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: 'rabbitmq:3.8-management-alpine'
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - './rabbitmq_data:/var/lib/rabbitmq/mnesia'
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=abcd1234
+    networks:
+      - internal
+
+  consumer-queue:
+    build:
+      context: ./consumer-queue
+    container_name: consumer-queue
+    depends_on:
+      - rabbitmq
+    networks:
+      - internal
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: api-gateway
+    depends_on:
+      - rabbitmq
+    ports:
+      - "3333:3333"
+    networks:
+      - internal
+
+  web-app:
+    build:
+      context: ./webapp
+    container_name: web-app
+    depends_on:
+      - api-gateway
+    ports:
+      - "3000:3000"
+    networks:
+      - internal
+
+  client-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: client
+    ports:
+      - "8081:8081"
+    networks:
+      - internal
+
+  order-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.order
+    container_name: order
+    ports:
+      - "8082:8082"
+    networks:
+      - internal
+
+networks:
+  internal:
