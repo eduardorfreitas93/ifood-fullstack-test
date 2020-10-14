@@ -75,3 +75,7 @@ active simultaneously (about ~1k).
 ```
 docker-compose up -d
 ```
+
+# API POST (Postman)
+
+`./ifood-test.postman_collection.json`

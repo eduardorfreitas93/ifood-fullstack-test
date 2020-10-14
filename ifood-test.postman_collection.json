@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "819b218c-70fe-42b6-adbd-f8726e3ace53",
+		"name": "ifood-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3333/clients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Eduardo\",\n    \"email\": \"edu@gmail.com\",\n    \"phone\": \"8181818181818\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/clients",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3333/orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"clientId\": \"0277a9c0-df6f-4eae-9069-f75917add991\",\n    \"createdAt\": \"2020-11-01\",\n    \"confirmedAt\": \"2020-11-05\",\n    \"items\": [{\n        \"description\": \"prod1\",\n        \"quantity\": 1,\n        \"price\": 4.89\n    },{\n        \"description\": \"prod2\",\n        \"quantity\": 10,\n        \"price\": 5.54 \n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
